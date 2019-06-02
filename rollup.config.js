@@ -6,6 +6,7 @@ import elm from 'rollup-plugin-elm';
 import copy from 'rollup-plugin-copy';
 import babel from 'rollup-plugin-babel';
 import remove from 'rollup-plugin-delete';
+import postcss from 'rollup-plugin-postcss';
 
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
@@ -70,6 +71,9 @@ export default [{
     input: src('js', 'index.js'),
 
     plugins: [
+        postcss({
+            extract: dist('index.css')
+        }),
         PRODUCTION && babel(),
         PRODUCTION && uglify()
     ],
