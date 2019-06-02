@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "rollup --environment NODE_ENV:development -wc",
     "prod": "rollup --environment NODE_ENV:production -c",
-    "format": "elm-format --yes src/*.elm"
+    "format": "elm-format --yes src/elm/*.elm"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
