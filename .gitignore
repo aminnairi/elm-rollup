@@ -1,0 +1,8 @@
+.config
+.elm
+.npm
+dist
+elm-stuff
+node_modules
+.bash_history
+.node_repl_history
