@@ -9,19 +9,31 @@ import remove from 'rollup-plugin-delete';
 
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
+function from(root, ...paths) {
+    return resolve(__dirname, root, ...paths);
+}
+
+function src(...paths) {
+    return from('src', ...paths);
+}
+
+function dist(...paths) {
+    return from('dist', ...paths);
+}
+
 export default [{
-    input: resolve(__dirname, 'src', 'elm', 'Main.elm'),
+    input: src('elm', 'Main.elm'),
 
     plugins: [
         remove({
             targets: [
-                resolve(__dirname, 'dist', '*')
+                dist('*')
             ]
         }),
 
         copy({
             targets: {
-                [resolve(__dirname, 'src', 'assets')]: resolve(__dirname, 'dist'),
+                [src('assets')]: dist(),
             }
         }),
 
@@ -50,12 +62,12 @@ export default [{
     ],
 
     output: {
-        file: resolve(__dirname, 'dist', 'main.js'),
+        file: dist('main.js'),
         format: 'iife',
         name: 'Elm'
     }
 }, {
-    input: resolve(__dirname, 'src', 'js', 'index.js'),
+    input: src('js', 'index.js'),
 
     plugins: [
         PRODUCTION && babel(),
@@ -63,7 +75,7 @@ export default [{
     ],
     
     output: {
-        file: resolve(__dirname, 'dist', 'index.js'),
+        file: dist('index.js'),
         format: 'iife'
     }
 }];
