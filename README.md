@@ -2,6 +2,12 @@
 
 Elm + Rollup starter kit
 
+## Requirements
+
+- [Git](https://git-scm.com/)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
 ## Installation
 
 ```console
