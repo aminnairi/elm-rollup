@@ -1,5 +1,7 @@
 'use strict';
 
+import '../css/index.css';
+
 const mainScript = document.createElement('script');
 const stylesheet = document.createElement('link');
 
