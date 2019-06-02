@@ -1,2 +1,3 @@
 makefile linguist-detectable=false
 rollup.config.js linguist-detectable=false
+postcss.config.js linguist-detectable=false
